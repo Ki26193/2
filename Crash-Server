@@ -1,5 +1,3 @@
-game.RunService:Set3dRenderingEnabled(false)
-game.Players.LocalPlayer.Character.BodyEffects["K.O"]:Destroy()
 
 
 
