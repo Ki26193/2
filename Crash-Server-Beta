@@ -1,0 +1,160 @@
+Found = 0
+
+Enabled = false
+
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local Hi = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local Line = Instance.new("Frame")
+local Start = Instance.new("TextButton")
+local UICorner_2 = Instance.new("UICorner")
+local UIGradient = Instance.new("UIGradient")
+local A_3 = Instance.new("TextLabel")
+local A_4 = Instance.new("TextLabel")
+local Stop = Instance.new("TextButton")
+local UICorner_3 = Instance.new("UICorner")
+local UIGradient_2 = Instance.new("UIGradient")
+local Line_2 = Instance.new("Frame")
+local A_1 = Instance.new("TextLabel")
+local A_2 = Instance.new("TextLabel")
+
+--Properties:
+
+Hi.Name = "Hi"
+Hi.Parent = game.CoreGui
+Hi.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Frame.Parent = Hi
+Frame.Active = true
+Frame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Frame.Position = UDim2.new(0, 994, 0, 321)
+Frame.Size = UDim2.new(0, 378, 0, 198)
+
+UICorner.CornerRadius = UDim.new(0, 4)
+UICorner.Parent = Frame
+
+Line.Name = "Line"
+Line.Parent = Frame
+Line.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+Line.BorderSizePixel = 0
+Line.Position = UDim2.new(-5.65140317e-06, 0, 0.0920205191, 0)
+Line.Size = UDim2.new(0, 378, 0, 1)
+
+Start.Name = "Start"
+Start.Parent = Frame
+Start.BackgroundColor3 = Color3.fromRGB(39, 39, 39)
+Start.Position = UDim2.new(0.0140000004, 0, 0.123000003, 0)
+Start.Size = UDim2.new(0, 91, 0, 23)
+Start.AutoButtonColor = false
+Start.Font = Enum.Font.Gotham
+Start.Text = "Start"
+Start.TextColor3 = Color3.fromRGB(209, 209, 209)
+Start.TextSize = 14.000
+
+UICorner_2.CornerRadius = UDim.new(0, 3)
+UICorner_2.Parent = Start
+
+UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 255, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(220, 220, 220))}
+UIGradient.Rotation = 90
+UIGradient.Parent = Start
+
+A_3.Name = "A_3"
+A_3.Parent = Start
+A_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+A_3.BackgroundTransparency = 1.000
+A_3.Position = UDim2.new(0.918758988, 0, 0.143030643, 0)
+A_3.Size = UDim2.new(0, 90, 0, 16)
+A_3.Font = Enum.Font.Gotham
+A_3.Text = "- (Crash)"
+A_3.TextColor3 = Color3.fromRGB(186, 186, 186)
+A_3.TextSize = 16.000
+
+A_4.Name = "A_4"
+A_4.Parent = Start
+A_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+A_4.BackgroundTransparency = 1.000
+A_4.Position = UDim2.new(0.918758988, 0, 1.18650889, 0)
+A_4.Size = UDim2.new(0, 90, 0, 16)
+A_4.Font = Enum.Font.Gotham
+A_4.Text = "- (Crash)"
+A_4.TextColor3 = Color3.fromRGB(186, 186, 186)
+A_4.TextSize = 16.000
+
+Stop.Name = "Stop"
+Stop.Parent = Frame
+Stop.BackgroundColor3 = Color3.fromRGB(39, 39, 39)
+Stop.Position = UDim2.new(0.0130000003, 0, 0.245000005, 0)
+Stop.Size = UDim2.new(0, 91, 0, 23)
+Stop.AutoButtonColor = false
+Stop.Font = Enum.Font.Gotham
+Stop.Text = "Stop"
+Stop.TextColor3 = Color3.fromRGB(209, 209, 209)
+Stop.TextSize = 14.000
+
+UICorner_3.CornerRadius = UDim.new(0, 3)
+UICorner_3.Parent = Stop
+
+UIGradient_2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 255, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(220, 220, 220))}
+UIGradient_2.Rotation = 90
+UIGradient_2.Parent = Stop
+
+Line_2.Name = "Line"
+Line_2.Parent = Frame
+Line_2.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+Line_2.BorderSizePixel = 0
+Line_2.Position = UDim2.new(-5.65140317e-06, 0, 0.420303345, 0)
+Line_2.Size = UDim2.new(0, 378, 0, 1)
+
+A_1.Name = "A_1"
+A_1.Parent = Line_2
+A_1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+A_1.BackgroundTransparency = 1.000
+A_1.Position = UDim2.new(-0.000654967502, 0, 7.05607414, 0)
+A_1.Size = UDim2.new(0, 90, 0, 16)
+A_1.Font = Enum.Font.Gotham
+A_1.Text = "0/1250"
+A_1.TextColor3 = Color3.fromRGB(186, 186, 186)
+A_1.TextSize = 16.000
+
+A_2.Name = "A_2"
+A_2.Parent = Line_2
+A_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+A_2.BackgroundTransparency = 1.000
+A_2.Position = UDim2.new(0.237440273, 0, 7.05607414, 0)
+A_2.Size = UDim2.new(0, 90, 0, 16)
+A_2.Font = Enum.Font.Gotham
+A_2.Text = "- Goal"
+A_2.TextColor3 = Color3.fromRGB(186, 186, 186)
+A_2.TextSize = 16.000
+
+-- Scripts:
+
+local function FJTAG_fake_script() -- Start.LocalScript 
+	local script = Instance.new('LocalScript', Start)
+
+	Start.MouseButton1Down:Connect(function() 
+		Enabled = true
+	end)
+end
+coroutine.wrap(FJTAG_fake_script)()
+local function BHDIFKT_fake_script() -- Stop.LocalScript 
+	local script = Instance.new('LocalScript', Stop)
+
+	Stop.MouseButton1Down:Connect(function() 
+		Enabled = false
+	end)
+end
+coroutine.wrap(BHDIFKT_fake_script)()
+local function QXJX_fake_script() -- A_1.LocalScript 
+	local script = Instance.new('LocalScript', A_1)
+
+	while wait() do
+		A_1.Text = Found.."/1250"
+	end
+end
+coroutine.wrap(QXJX_fake_script)()
