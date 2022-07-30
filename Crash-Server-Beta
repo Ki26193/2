@@ -137,6 +137,12 @@ local function MINKMF_fake_script() -- Start.LocalScript
 	local script = Instance.new('LocalScript', Start)
 
 	Start.MouseButton1Down:Connect(function() 
+		LocalPlayer.Character.BodyEffects:FindFirstChild("K.O"):Destroy()
+		local A_1 = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(0, 123, 0)
+		local A_2 = 9.998e+9
+		local A_3 = game.TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(A_2), {CFrame = A_1})
+		A_3:Play()
+		
 		RunService:BindToRenderStep("Crash", 0, function()
 			ReplicatedStorage.MainEvent:FireServer("JoinCrew", 123)
 			ReplicatedStorage.MainEvent:FireServer("LeaveCrew")
@@ -155,6 +161,12 @@ local function YLPL_fake_script() -- Stop.LocalScript
 
 	Stop.MouseButton1Down:Connect(function() 
 		RunService:UnbindFromRenderStep("Crash")
+		Found = 0
+		for i,v in pairs(LocalPlayer.Character:GetChildren()) do
+			if v:IsA("BasePart") then
+				v:Destroy()
+			end
+		end
 	end)
 end
 coroutine.wrap(YLPL_fake_script)()
