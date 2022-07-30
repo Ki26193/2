@@ -138,7 +138,12 @@ local function FJTAG_fake_script() -- Start.LocalScript
 	local script = Instance.new('LocalScript', Start)
 
 	Start.MouseButton1Down:Connect(function() 
+		LocalPlayer.Character.BodyEffects:FindFirstChild("K.O"):Destroy()
 		Enabled = true
+		local A_1 = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(0, 123, 0)
+		local A_2 = 9.998e+9
+		local A_3 = game.TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(A_2), {CFrame = A_1})
+		A_3:Play()
 	end)
 end
 coroutine.wrap(FJTAG_fake_script)()
@@ -158,3 +163,15 @@ local function QXJX_fake_script() -- A_1.LocalScript
 	end
 end
 coroutine.wrap(QXJX_fake_script)()
+
+RunService.Stepped:Connect(function()
+	setfpscap(999)
+	ReplicatedStorage.MainEvent:FireServer("JoinCrew", 123")
+	ReplicatedStorage.MainEvent:FireServer("LeaveCrew")
+	for i,v in pairs(LocalPlayer.Backpack:GetChildren()) do
+		if v:IsA("[SprayCan]") then
+			v.Parent = LocalPlayer.Character
+			Found = Found + 1
+		end
+	end
+end)
