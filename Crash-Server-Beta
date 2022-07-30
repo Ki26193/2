@@ -1,7 +1,5 @@
 Found = 0
 
-Enabled = false
-
 -- Gui to Lua
 -- Version: 3.2
 
@@ -34,6 +32,7 @@ Frame.Active = true
 Frame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
 Frame.Position = UDim2.new(0, 994, 0, 321)
 Frame.Size = UDim2.new(0, 378, 0, 198)
+Frame.Draggable = true
 
 UICorner.CornerRadius = UDim.new(0, 4)
 UICorner.Parent = Frame
@@ -134,44 +133,36 @@ A_2.TextSize = 16.000
 
 -- Scripts:
 
-local function FJTAG_fake_script() -- Start.LocalScript 
+local function MINKMF_fake_script() -- Start.LocalScript 
 	local script = Instance.new('LocalScript', Start)
 
 	Start.MouseButton1Down:Connect(function() 
-		LocalPlayer.Character.BodyEffects:FindFirstChild("K.O"):Destroy()
-		Enabled = true
-		local A_1 = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(0, 123, 0)
-		local A_2 = 9.998e+9
-		local A_3 = game.TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(A_2), {CFrame = A_1})
-		A_3:Play()
+		RunService:BindToRenderStep("Crash", 0, function()
+			ReplicatedStorage.MainEvent:FireServer("JoinCrew", 123)
+			ReplicatedStorage.MainEvent:FireServer("LeaveCrew")
+			for i,v in pairs(LocalPlayer.Backpack:GetChildren()) do
+				if v:IsA("[SprayCan]") then
+					v.Parent = LocalPlayer.Character
+					Found = Found + 1
+				end
+			end
+		end)
 	end)
 end
-coroutine.wrap(FJTAG_fake_script)()
-local function BHDIFKT_fake_script() -- Stop.LocalScript 
+coroutine.wrap(MINKMF_fake_script)()
+local function YLPL_fake_script() -- Stop.LocalScript 
 	local script = Instance.new('LocalScript', Stop)
 
 	Stop.MouseButton1Down:Connect(function() 
-		Enabled = false
+		RunService:UnbindFromRenderStep("Crash")
 	end)
 end
-coroutine.wrap(BHDIFKT_fake_script)()
-local function QXJX_fake_script() -- A_1.LocalScript 
+coroutine.wrap(YLPL_fake_script)()
+local function QZRN_fake_script() -- A_1.LocalScript 
 	local script = Instance.new('LocalScript', A_1)
 
 	while wait() do
 		A_1.Text = Found.."/1250"
 	end
 end
-coroutine.wrap(QXJX_fake_script)()
-
-RunService.Stepped:Connect(function()
-	setfpscap(999)
-	ReplicatedStorage.MainEvent:FireServer("JoinCrew", 123")
-	ReplicatedStorage.MainEvent:FireServer("LeaveCrew")
-	for i,v in pairs(LocalPlayer.Backpack:GetChildren()) do
-		if v:IsA("[SprayCan]") then
-			v.Parent = LocalPlayer.Character
-			Found = Found + 1
-		end
-	end
-end)
+coroutine.wrap(QZRN_fake_script)()
