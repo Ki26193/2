@@ -1,5 +1,5 @@
 game.CoreGui:SetCore("SendNotification", {
   Title = "Not Updated!",
-  Text = "Update Done In : 13%"
+  Text = "Update Done In : 61%"
   Duration = 3,
 })
